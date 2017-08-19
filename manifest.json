@@ -1,0 +1,26 @@
+{
+
+	"name": "HideOperaAgent",
+	"version": "0.1",
+	
+	"description": "Hide Opera User Agent on sites",
+
+	"background": {
+        "scripts": ["load.js"]
+    },
+	"permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+	"content_scripts": [
+		{
+			"matches": ["https://www.ingdirect.com.au/*"],
+			"js": ["watch.js"],
+			"run_at": "document_start",
+			"all_frames": true
+		}
+	],
+	"content_security_policy": "script-src 'self'; object-src 'self'",
+	"manifest_version": 2
+}
